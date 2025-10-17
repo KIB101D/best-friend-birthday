@@ -1,0 +1,117 @@
+ html,
+ body {
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   background: #000;
+   font-family: 'Montserrat', sans-serif;
+   color: white;
+   height: 100vh;
+ }
+
+ #scene {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+ }
+
+ .overlay,
+ .flash {
+   position: absolute;
+   inset: 0;
+   background: black;
+   opacity: 0;
+   pointer-events: none;
+   z-index: 10;
+ }
+
+ .flash {
+   background: white;
+   z-index: 20;
+ }
+
+ #hero {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%) scale(1.05);
+   opacity: 0;
+   max-width: 80%;
+   max-height: 80%;
+   z-index: 15;
+   filter: brightness(1.3) contrast(1.1);
+   mix-blend-mode: screen;
+ }
+
+ /* Для менших екранів — робимо зображення більш масштабним */
+ @media (max-width: 768px) {
+   #hero {
+     width: 120vw;
+     max-width: none;
+     max-height: none;
+     transform: translate(-50%, -50%) scale(1.2);
+   }
+ }
+
+ .age {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   font-size: 10rem;
+   font-weight: 900;
+   color: white;
+   z-index: 5;
+   text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+ }
+
+ .birthday-wish {
+   position: absolute;
+   bottom: 50px;
+   left: 50%;
+   transform: translateX(-50%);
+   font-size: 24px;
+   opacity: 0;
+   text-align: center;
+   width: max-content;
+   z-index: 25;
+ }
+
+
+ #startButton {
+   position: fixed;
+   bottom: 20px;
+   left: 50%;
+   transform: translateX(-50%);
+   padding: 12px 24px;
+   font-size: 18px;
+   border: none;
+   border-radius: 6px;
+   background: linear-gradient(90deg, #C0C0C0, #E6E6E6, #C0C0C0);
+   color: black;
+   cursor: pointer;
+   z-index: 50;
+ }
+
+ canvas {
+   position: absolute;
+   inset: 0;
+   width: 100%;
+   height: 100%;
+   pointer-events: none;
+   z-index: 0;
+ }
+
+ .slash-line {
+   position: absolute;
+   top: 50%;
+   left: -50%;
+   width: 200%;
+   height: 3px;
+   background: linear-gradient(90deg, transparent, #fff 40%, #8cf 50%, #fff 60%, transparent);
+   opacity: 0;
+   filter: blur(2px) brightness(2);
+   z-index: 30;
+   transform: rotate(0deg);
+ }
